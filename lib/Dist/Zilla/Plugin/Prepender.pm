@@ -68,6 +68,7 @@ In your F<dist.ini>:
 
     [Prepender]
     line = # This file is part of Foo::Bar
+    line = # Foo::Bar is copyright...
     line = use strict;
     line = use warnings;
 
