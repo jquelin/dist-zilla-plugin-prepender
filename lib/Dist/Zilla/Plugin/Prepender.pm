@@ -43,13 +43,27 @@ sub munge_file {
 #
 sub _munge_perl {
     my ($self, $file) = @_;
-    my $stuff = join "\n", $self->_lines;
+    my @prepend;
     my @lines = split /\n/, $file->content;
 
-    # if there's a shebang line, insert stuff just after it
-    my $id = ( $lines[0] =~ /^#!(?:.*)perl(?:$|\s)/ ) ? 1 : 0;
+    # add copyright information if requested
+    if ( $self->copyright ) {
+        my @copyright = (
+            '',
+            "This file is part of " . $self->zilla->name,
+            '',
+            split(/\n/, $self->zilla->license->notice),
+            '',
+        );
+        push @prepend, map { "# $_" } @copyright;
+    }
 
-    splice @lines, $id, 0, $stuff;
+    # add hand-written lines to prepend
+    push @prepend, $self->_lines;
+
+    # insertion point depends if there's a shebang line
+    my $id = ( $lines[0] =~ /^#!(?:.*)perl(?:$|\s)/ ) ? 1 : 0;
+    splice @lines, $id, 0, @prepend;
     $file->content(join "\n", @lines);
 }
 
