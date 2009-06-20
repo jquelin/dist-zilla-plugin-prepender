@@ -82,3 +82,11 @@ This is useful to enforce a set of pragmas to your files (since pragmas
 are lexical, they will be active for the whole file), or to add some
 copyright comments, as the fsf recommends.
 
+=head1 BUGS
+
+Please report any bugs or feature request to
+C<< <bug-dist-zilla-plugin-prepender@rt.cpan.org> >>, or through the web interface
+at L<http://rt.cpan.org/NoAuth/ReportBug.html?Queue=Dist-Zilla-Plugin-Prepender>.
+
+
+
