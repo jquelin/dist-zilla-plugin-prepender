@@ -10,13 +10,17 @@ with 'Dist::Zilla::Role::FileMunger';
 # accept some arguments multiple times.
 sub multivalue_args { qw{ line } }
 
+has copyright => (
+    is => 'ro',
+    default => 0,
+);
 has _lines => (
-  is         => 'ro',
-  isa        => 'ArrayRef',
-  lazy       => 1,
-  auto_deref => 1,
-  init_arg   => 'line',
-  default    => sub { [] },
+    is         => 'ro',
+    isa        => 'ArrayRef',
+    lazy       => 1,
+    auto_deref => 1,
+    init_arg   => 'line',
+    default    => sub { [] },
 );
 
 
