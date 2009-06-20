@@ -85,8 +85,7 @@ munge_file
 In your F<dist.ini>:
 
     [Prepender]
-    line = # This file is part of Foo::Bar
-    line = # Foo::Bar is copyright...
+    copyright = 1
     line = use strict;
     line = use warnings;
 
@@ -99,6 +98,18 @@ lines will be inserted just after it.
 This is useful to enforce a set of pragmas to your files (since pragmas
 are lexical, they will be active for the whole file), or to add some
 copyright comments, as the fsf recommends.
+
+The module accepts the following options in its F<dist.ini> section:
+
+=over 4
+
+=item * copyright - whether to insert a boilerplate copyright comment.
+defaults to false.
+
+=item * line - anything you want to add. may be specified multiple
+times. no default.
+
+=back
 
 =head1 BUGS
 
