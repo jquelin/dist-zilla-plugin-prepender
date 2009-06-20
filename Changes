@@ -9,6 +9,14 @@ High-level changelog
 Low-level changelog
 ===================
 
+
+0.1.2 Sat Jun 20 16:23:40 CEST 2009
+ - pod fix
+ - adding repository resource in meta.yml
+
+0.1.1 Sat Jun 20 12:03:52 CEST 2009
+ - adding missing prereqs
+
 0.1.0 Sat Jun 20 11:52:52 CEST 2009
  - original release
  - basic prepending
