@@ -3,12 +3,18 @@ Revision history for Dist::Zilla::Plugin::Prepender
 High-level changelog
 ====================
 
+0.2.x    automatic copyright option
 0.1.x    initial release
 
 
 Low-level changelog
 ===================
 
+0.2.0 Sun Jun 21 11:32:47 CEST 2009
+ - automatic copyright boilerplate option added
+ - unit test for prepender plugin
+
+**
 
 0.1.2 Sat Jun 20 16:23:40 CEST 2009
  - pod fix
