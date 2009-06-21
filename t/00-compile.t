@@ -1,5 +1,8 @@
 #!perl
 
+use strict;
+use warnings;
+
 use File::Find::Rule;
 use Test::More;
 
