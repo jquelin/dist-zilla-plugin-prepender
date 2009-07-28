@@ -11,7 +11,7 @@ with 'Dist::Zilla::Role::FileMunger';
 # -- attributes
 
 # accept some arguments multiple times.
-sub multivalue_args { qw{ line } }
+sub mvp_multivalue_args { qw{ line } }
 
 has copyright => (
     is => 'ro',
