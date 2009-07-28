@@ -1,14 +1,7 @@
 Revision history for Dist::Zilla::Plugin::Prepender
 
-High-level changelog
-====================
-
-0.2.x    automatic copyright option
-0.1.x    initial release
-
-
-Low-level changelog
-===================
+0.2.1 Tue Jul 28 10:04:12 CEST 2009
+ - fix plugin to work with latest dist-zilla & multivalued args
 
 0.2.0 Sun Jun 21 11:32:47 CEST 2009
  - automatic copyright boilerplate option added
