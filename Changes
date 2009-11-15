@@ -1,5 +1,9 @@
 Revision history for Dist::Zilla::Plugin::Prepender
 
+{{$NEXT}}
+
+**
+
 0.2.1 Tue Jul 28 10:04:12 CEST 2009
  - fix plugin to work with latest dist-zilla & multivalued args
 
