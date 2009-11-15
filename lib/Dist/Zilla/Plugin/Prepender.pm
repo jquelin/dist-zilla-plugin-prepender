@@ -1,8 +1,9 @@
-package Dist::Zilla::Plugin::Prepender;
-# ABSTRACT: prepend lines at the top of your perl files
-
+use 5.008;
 use strict;
 use warnings;
+
+package Dist::Zilla::Plugin::Prepender;
+# ABSTRACT: prepend lines at the top of your perl files
 
 use Moose;
 with 'Dist::Zilla::Role::FileMunger';
