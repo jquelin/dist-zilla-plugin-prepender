@@ -135,7 +135,7 @@ L<http://www.listbox.com/subscribe/?list_id=139292>
 
 =item * Git repository
 
-L<http://github.com/jquelin/dist-zilla-plugin-prepender.git>
+L<http://github.com/jquelin/dist-zilla-plugin-prepender>
 
 =item * AnnoCPAN: Annotated CPAN documentation
 
