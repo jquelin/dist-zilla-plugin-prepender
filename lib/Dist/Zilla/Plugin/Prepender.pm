@@ -17,7 +17,7 @@ with 'Dist::Zilla::Role::FileMunger';
 # accept some arguments multiple times.
 sub mvp_multivalue_args { qw{ line } }
 
-has copyright => ( ro, default => 0 );
+has copyright => ( ro, default => 1 );
 has _lines => (
     ro, lazy, auto_deref,
     isa        => ArrayRef,
@@ -91,7 +91,7 @@ munge_file
 In your F<dist.ini>:
 
     [Prepender]
-    copyright = 1
+    copyright = 0
     line = use strict;
     line = use warnings;
 
@@ -110,7 +110,7 @@ The module accepts the following options in its F<dist.ini> section:
 =over 4
 
 =item * copyright - whether to insert a boilerplate copyright comment.
-defaults to false.
+defaults to true.
 
 =item * line - anything you want to add. may be specified multiple
 times. no default.
