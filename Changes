@@ -2,6 +2,10 @@ Revision history for Dist::Zilla::Plugin::Prepender
 
 {{$NEXT}}
 
+1.100130  2010-01-13 14:59:18 Europe/Paris
+ - copyright param defaults to true
+ - bug fix: no more trimming blank lines at the end of files
+
 1.093190 Sun Nov 15 16:49:27 2009
  - plugin is stable, bumping to 1.yydddn versioning scheme
  - adding some author tests
