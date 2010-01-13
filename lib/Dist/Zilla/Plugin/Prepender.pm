@@ -46,7 +46,6 @@ sub munge_file {
 sub _munge_perl {
     my ($self, $file) = @_;
     my @prepend;
-    my @lines = split /\n/, $file->content;
 
     # add copyright information if requested
     if ( $self->copyright ) {
@@ -62,11 +61,16 @@ sub _munge_perl {
 
     # add hand-written lines to prepend
     push @prepend, $self->_lines;
+    my $prepend = join "\n", @prepend;
 
     # insertion point depends if there's a shebang line
-    my $id = ( $lines[0] =~ /^#!(?:.*)perl(?:$|\s)/ ) ? 1 : 0;
-    splice @lines, $id, 0, @prepend;
-    $file->content(join "\n", @lines);
+    my $content = $file->content;
+    if ( $content =~ /^#!(?:.*)perl(?:$|\s)/ ) {
+        $content =~ s/\n/\n$prepend\n/;
+    } else {
+        $content =~ s/^/$prepend\n/;
+    }
+    $file->content($content);
 }
 
 __PACKAGE__->meta->make_immutable;
