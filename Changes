@@ -2,6 +2,10 @@ Revision history for Dist::Zilla::Plugin::Prepender
 
 {{$NEXT}}
 
+1.100960  2010-04-06 17:36:39 Europe/Paris
+ - make test dzil2 compliant
+ - use dist-zilla-tester framework for tests
+
 1.100130  2010-01-13 14:59:18 Europe/Paris
  - copyright param defaults to true
  - bug fix: no more trimming blank lines at the end of files
