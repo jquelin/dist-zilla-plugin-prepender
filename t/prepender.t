@@ -3,19 +3,21 @@
 use strict;
 use warnings;
 
-use Dist::Zilla;
-use File::Spec::Functions qw{ catdir catfile };
+use Dist::Zilla::Tester;
+use Path::Class;
 use Test::More tests => 20;
 
 # build fake dist
-chdir( catdir('t', 'foo') );
-my $zilla = Dist::Zilla->from_config;
-$zilla->build_in;
-my $dir = 'Foo-1.23';
+my $tzil = Dist::Zilla::Tester->from_config({
+    dist_root => dir(qw(t foo)),
+});
+chdir $tzil->tempdir->subdir('source');
+$tzil->build;
 
 # check module & script
-check_top_of_file( catfile($dir, 'lib', 'Foo.pm'), 0 );
-check_top_of_file( catfile($dir, 'bin', 'foobar'), 1 );
+my $dir = $tzil->tempdir->subdir('build');
+check_top_of_file( file($dir, 'lib', 'Foo.pm'), 0 );
+check_top_of_file( file($dir, 'bin', 'foobar'), 1 );
 
 exit;
 
