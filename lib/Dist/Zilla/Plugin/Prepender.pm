@@ -7,7 +7,6 @@ package Dist::Zilla::Plugin::Prepender;
 
 use Moose;
 use MooseX::Has::Sugar;
-use MooseX::Types::Moose qw{ ArrayRef };
 
 with 'Dist::Zilla::Role::FileMunger';
 
@@ -20,7 +19,7 @@ sub mvp_multivalue_args { qw{ line } }
 has copyright => ( ro, default => 1 );
 has _lines => (
     ro, lazy, auto_deref,
-    isa        => ArrayRef,
+    isa        => 'ArrayRef[Str]',
     init_arg   => 'line',
     default    => sub { [] },
 );
