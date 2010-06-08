@@ -2,6 +2,9 @@ Revision history for Dist::Zilla::Plugin::Prepender
 
 {{$NEXT}}
 
+1.101590  2010-06-08 10:44:57 Europe/Paris
+ - fix #58230: license should not output lines finished by whitespaces
+
 1.100960  2010-04-06 17:36:39 Europe/Paris
  - make test dzil2 compliant
  - use dist-zilla-tester framework for tests
