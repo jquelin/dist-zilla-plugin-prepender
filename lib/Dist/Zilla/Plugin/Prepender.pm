@@ -55,7 +55,7 @@ sub _munge_perl {
             split(/\n/, $self->zilla->license->notice),
             '',
         );
-        push @prepend, map { "# $_" } @copyright;
+        push @prepend, map { length($_) ? "# $_" : '#' } @copyright;
     }
 
     # add hand-written lines to prepend
