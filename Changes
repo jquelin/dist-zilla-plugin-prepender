@@ -2,6 +2,9 @@ Revision history for Dist::Zilla::Plugin::Prepender
 
 {{$NEXT}}
 
+1.103470  2010-12-13 20:33:44 Europe/Paris
+ - add support for editor mode lines (david golden)
+
 1.101590  2010-06-08 10:44:57 Europe/Paris
  - fix #58230: license should not output lines finished by whitespaces
 
