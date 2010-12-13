@@ -42,6 +42,13 @@ sub munge_file {
 #
 # munge content of perl $file: add stuff at the top of the file
 #
+
+my %re = (
+  shebang   => qr/^#!(?:.*)perl(?:$|\s.*$)/m,
+  vimmode   => qr/^#\s*(?:vim?|ex):.*$/m,
+  emacsmode => qr/^#\s*-\*-[^\n]+?-\*-.*$/m,
+);
+
 sub _munge_perl {
     my ($self, $file) = @_;
     my @prepend;
@@ -64,10 +71,14 @@ sub _munge_perl {
 
     # insertion point depends if there's a shebang line
     my $content = $file->content;
-    if ( $content =~ /^#!(?:.*)perl(?:$|\s)/ ) {
+    if ( $content =~ /\A$re{shebang}\n(?:$re{vimmode}|$re{emacsmode})/ ) {
+      # skip two lines
+        $content =~ s/\A([^\n]+\n[^\n]+\n)/$1$prepend\n/;
+    } elsif ( $content =~ /\A(?:$re{shebang}|$re{vimmode}|$re{emacsmode})/ ) {
+      # skip one line
         $content =~ s/\n/\n$prepend\n/;
     } else {
-        $content =~ s/^/$prepend\n/;
+        $content =~ s/\A/$prepend\n/;
     }
     $file->content($content);
 }
