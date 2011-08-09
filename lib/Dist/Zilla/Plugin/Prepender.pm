@@ -14,7 +14,7 @@ with 'Dist::Zilla::Role::FileMunger';
 # -- attributes
 
 # accept some arguments multiple times.
-sub mvp_multivalue_args { qw{ line } }
+sub mvp_multivalue_args { qw{ line skip } }
 
 has copyright => ( ro, default => 1 );
 has _lines => (
@@ -23,7 +23,12 @@ has _lines => (
     init_arg   => 'line',
     default    => sub { [] },
 );
-has skip => ( ro, default => '' );
+has _skips => (
+    ro, lazy, auto_deref,
+    isa        => 'ArrayRef[Str]',
+    init_arg   => 'skip',
+    default    => sub { [] },
+);
 
 
 # -- public methods
@@ -31,7 +36,7 @@ has skip => ( ro, default => '' );
 sub munge_file {
     my ($self, $file) = @_;
 
-    if( my $skip = $self->skip ){
+    foreach my $skip ( $self->_skips ){
         return if $file->name =~ $skip;
     }
 
