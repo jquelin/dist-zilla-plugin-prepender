@@ -115,6 +115,7 @@ In your F<dist.ini>:
     line = use strict;
     line = use warnings;
     skip = t/data/.+\.pl
+    skip = something-else-unnecessary
 
 =head1 DESCRIPTION
 
@@ -137,7 +138,7 @@ defaults to true.
 times. no default.
 
 =item * skip - regexp of file names to not prepend to.
-no default.
+may be specified multiple times. no default.
 
 =back
 
