@@ -23,12 +23,17 @@ has _lines => (
     init_arg   => 'line',
     default    => sub { [] },
 );
+has skip => ( ro, default => '' );
 
 
 # -- public methods
 
 sub munge_file {
     my ($self, $file) = @_;
+
+    if( my $skip = $self->skip ){
+        return if $file->name =~ $skip;
+    }
 
     return $self->_munge_perl($file) if $file->name    =~ /\.(?:pm|pl)$/i;
     return $self->_munge_perl($file) if $file->content =~ /^#!(?:.*)perl(?:$|\s)/;
@@ -104,6 +109,7 @@ In your F<dist.ini>:
     copyright = 0
     line = use strict;
     line = use warnings;
+    skip = t/data/.+\.pl
 
 =head1 DESCRIPTION
 
@@ -124,6 +130,9 @@ defaults to true.
 
 =item * line - anything you want to add. may be specified multiple
 times. no default.
+
+=item * skip - regexp of file names to not prepend to.
+no default.
 
 =back
 
