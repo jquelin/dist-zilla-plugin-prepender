@@ -99,12 +99,9 @@ no Moose;
 
 __END__
 
-=begin Pod::Coverage
+=for Pod::Coverage
+    mvp_multivalue_args munge_file
 
-multivalue_args
-munge_file
-
-=end Pod::Coverage
 
 =head1 SYNOPSIS
 
