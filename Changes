@@ -2,6 +2,9 @@ Revision history for Dist::Zilla::Plugin::Prepender
 
 {{$NEXT}}
 
+1.112280  2011-08-16 19:22:55 Europe/Paris
+ - allow to skip files (randy stauner)
+
 1.103470  2010-12-13 20:33:44 Europe/Paris
  - add support for editor mode lines (david golden)
 
