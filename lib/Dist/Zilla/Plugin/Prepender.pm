@@ -14,7 +14,7 @@ with 'Dist::Zilla::Role::FileMunger';
 # -- attributes
 
 # accept some arguments multiple times.
-sub mvp_multivalue_args { qw{ line } }
+sub mvp_multivalue_args { qw{ line skip } }
 
 has copyright => ( ro, default => 1 );
 has _lines => (
@@ -23,12 +23,22 @@ has _lines => (
     init_arg   => 'line',
     default    => sub { [] },
 );
+has _skips => (
+    ro, lazy, auto_deref,
+    isa        => 'ArrayRef[Str]',
+    init_arg   => 'skip',
+    default    => sub { [] },
+);
 
 
 # -- public methods
 
 sub munge_file {
     my ($self, $file) = @_;
+
+    foreach my $skip ( $self->_skips ){
+        return if $file->name =~ $skip;
+    }
 
     return $self->_munge_perl($file) if $file->name    =~ /\.(?:pm|pl)$/i;
     return $self->_munge_perl($file) if $file->content =~ /^#!(?:.*)perl(?:$|\s)/;
@@ -104,6 +114,8 @@ In your F<dist.ini>:
     copyright = 0
     line = use strict;
     line = use warnings;
+    skip = t/data/.+\.pl
+    skip = something-else-unnecessary
 
 =head1 DESCRIPTION
 
@@ -124,6 +136,9 @@ defaults to true.
 
 =item * line - anything you want to add. may be specified multiple
 times. no default.
+
+=item * skip - regexp of file names to not prepend to.
+may be specified multiple times. no default.
 
 =back
 

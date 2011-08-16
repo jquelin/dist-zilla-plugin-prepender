@@ -5,7 +5,7 @@ use warnings;
 
 use Dist::Zilla::Tester;
 use Path::Class;
-use Test::More tests => 20;
+use Test::More tests => 21;
 
 # build fake dist
 my $tzil = Dist::Zilla::Tester->from_config({
@@ -18,6 +18,10 @@ $tzil->build;
 my $dir = $tzil->tempdir->subdir('build');
 check_top_of_file( file($dir, 'lib', 'Foo.pm'), 0 );
 check_top_of_file( file($dir, 'bin', 'foobar'), 1 );
+
+is $tzil->slurp_file(file(qw(build t support.pl))),
+   "# only used during tests\nuse strict;\n1;\n",
+   'file ignored according to configuration';
 
 exit;
 
