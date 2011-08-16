@@ -1,8 +1,19 @@
+#
+# This file is part of Dist-Zilla-Plugin-Prepender
+#
+# This software is copyright (c) 2009 by Jerome Quelin.
+#
+# This is free software; you can redistribute it and/or modify it under
+# the same terms as the Perl 5 programming language system itself.
+#
 use 5.008;
 use strict;
 use warnings;
 
 package Dist::Zilla::Plugin::Prepender;
+BEGIN {
+  $Dist::Zilla::Plugin::Prepender::VERSION = '1.112280';
+}
 # ABSTRACT: prepend lines at the top of your perl files
 
 use Moose;
@@ -97,11 +108,17 @@ __PACKAGE__->meta->make_immutable;
 no Moose;
 1;
 
-__END__
 
-=for Pod::Coverage
-    mvp_multivalue_args munge_file
 
+=pod
+
+=head1 NAME
+
+Dist::Zilla::Plugin::Prepender - prepend lines at the top of your perl files
+
+=head1 VERSION
+
+version 1.112280
 
 =head1 SYNOPSIS
 
@@ -139,7 +156,7 @@ may be specified multiple times. no default.
 
 =back
 
-
+=for Pod::Coverage mvp_multivalue_args munge_file
 
 =head1 SEE ALSO
 
@@ -172,4 +189,20 @@ L<http://annocpan.org/dist/Dist-Zilla-Plugin-Prepender>
 L<http://cpanratings.perl.org/d/Dist-Zilla-Plugin-Prepender>
 
 =back
+
+=head1 AUTHOR
+
+Jerome Quelin
+
+=head1 COPYRIGHT AND LICENSE
+
+This software is copyright (c) 2009 by Jerome Quelin.
+
+This is free software; you can redistribute it and/or modify it under
+the same terms as the Perl 5 programming language system itself.
+
+=cut
+
+
+__END__
 

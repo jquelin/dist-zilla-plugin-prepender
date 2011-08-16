@@ -1,7 +1,5 @@
 Revision history for Dist::Zilla::Plugin::Prepender
 
-{{$NEXT}}
-
 1.112280  2011-08-16 19:22:55 Europe/Paris
  - allow to skip files (randy stauner)
 
