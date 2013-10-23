@@ -30,6 +30,7 @@ has _skips => (
     default    => sub { [] },
 );
 
+our $DZIL_5 = eval { Dist::Zilla->VERSION(5.000) };
 
 # -- public methods
 
@@ -39,6 +40,8 @@ sub munge_file {
     foreach my $skip ( $self->_skips ){
         return if $file->name =~ $skip;
     }
+
+    return if $DZIL_5 and $file->encoding eq 'bytes';
 
     return $self->_munge_perl($file) if $file->name    =~ /\.(?:pm|pl)$/i;
     return $self->_munge_perl($file) if $file->content =~ /^#!(?:.*)perl(?:$|\s)/;
