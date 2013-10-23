@@ -1,6 +1,7 @@
 Revision history for Dist::Zilla::Plugin::Prepender
 
 {{$NEXT}}
+ - On Dzil 5, skip files with encoding eq 'bytes' (kent fredric)
 
 1.112280  2011-08-16 19:22:55 Europe/Paris
  - allow to skip files (randy stauner)
