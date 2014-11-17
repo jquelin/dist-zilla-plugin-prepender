@@ -40,6 +40,12 @@ sub munge_file {
         return if $file->name =~ $skip;
     }
 
+    if ($file->does('Dist::Zilla:Role::MutableFile'))
+    {
+        $self->log_debug($file->name . ' is not a mutable type, skipping...');
+        return;
+    }
+
     return $self->_munge_perl($file) if $file->name    =~ /\.(?:pm|pl)$/i;
     return $self->_munge_perl($file) if $file->content =~ /^#!(?:.*)perl(?:$|\s)/;
     return;
