@@ -30,6 +30,7 @@ has _skips => (
     default    => sub { [] },
 );
 
+our $DZIL_5 = eval { Dist::Zilla->VERSION(5.000) };
 
 # -- public methods
 
@@ -45,7 +46,7 @@ sub munge_file {
         $self->log_debug($file->name . ' is not a mutable type, skipping...');
         return;
     }
-
+    return if $DZIL_5 and $file->encoding eq 'bytes';
     return $self->_munge_perl($file) if $file->name    =~ /\.(?:pm|pl)$/i;
     return $self->_munge_perl($file) if $file->content =~ /^#!(?:.*)perl(?:$|\s)/;
     return;
