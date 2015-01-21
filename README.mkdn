@@ -1,0 +1,76 @@
+# NAME
+
+Dist::Zilla::Plugin::Prepender - prepend lines at the top of your perl files
+
+# VERSION
+
+version 2.000
+
+# SYNOPSIS
+
+In your `dist.ini`:
+
+    [Prepender]
+    copyright = 0
+    line = use strict;
+    line = use warnings;
+    skip = t/data/.+\.pl
+    skip = something-else-unnecessary
+
+# DESCRIPTION
+
+This plugin will prepend the specified lines in each Perl module or
+program within the distribution. For scripts having a shebang line,
+lines will be inserted just after it.
+
+This is useful to enforce a set of pragmas to your files (since pragmas
+are lexical, they will be active for the whole file), or to add some
+copyright comments, as the fsf recommends.
+
+The module accepts the following options in its `dist.ini` section:
+
+- copyright - whether to insert a boilerplate copyright comment.
+defaults to true.
+- line - anything you want to add. may be specified multiple
+times. no default.
+- skip - regexp of file names to not prepend to.
+may be specified multiple times. no default.
+
+# SEE ALSO
+
+You can look for information on this module at:
+
+- Search CPAN
+
+    [http://search.cpan.org/dist/Dist-Zilla-Plugin-Prepender](http://search.cpan.org/dist/Dist-Zilla-Plugin-Prepender)
+
+- See open / report bugs
+
+    [http://rt.cpan.org/NoAuth/Bugs.html?Dist=Dist-Zilla-Plugin-Prepender](http://rt.cpan.org/NoAuth/Bugs.html?Dist=Dist-Zilla-Plugin-Prepender)
+
+- Mailing-list (same as [Dist::Zilla](https://metacpan.org/pod/Dist::Zilla))
+
+    [http://www.listbox.com/subscribe/?list\_id=139292](http://www.listbox.com/subscribe/?list_id=139292)
+
+- Git repository
+
+    [http://github.com/jquelin/dist-zilla-plugin-prepender](http://github.com/jquelin/dist-zilla-plugin-prepender)
+
+- AnnoCPAN: Annotated CPAN documentation
+
+    [http://annocpan.org/dist/Dist-Zilla-Plugin-Prepender](http://annocpan.org/dist/Dist-Zilla-Plugin-Prepender)
+
+- CPAN Ratings
+
+    [http://cpanratings.perl.org/d/Dist-Zilla-Plugin-Prepender](http://cpanratings.perl.org/d/Dist-Zilla-Plugin-Prepender)
+
+# AUTHOR
+
+Jerome Quelin
+
+# COPYRIGHT AND LICENSE
+
+This software is copyright (c) 2009 by Jerome Quelin.
+
+This is free software; you can redistribute it and/or modify it under
+the same terms as the Perl 5 programming language system itself.
