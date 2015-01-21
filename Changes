@@ -1,6 +1,8 @@
 Revision history for Dist::Zilla::Plugin::Prepender
 
 {{$NEXT}}
+
+2.001     2015-01-21 14:36:18+01:00 Europe/Paris
  - On Dzil 5, skip files with encoding eq 'bytes' (kent fredric)
 
 2.000     2015-01-21 14:27:39+01:00 Europe/Paris
