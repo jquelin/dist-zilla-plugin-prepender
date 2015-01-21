@@ -2,6 +2,12 @@ Revision history for Dist::Zilla::Plugin::Prepender
 
 {{$NEXT}}
 
+2.000     2015-01-21 14:27:39+01:00 Europe/Paris
+ - updated bundle usage
+ - do not try to munge files that cannot be altered (Karen Etheridge)
+
+**
+
 1.112280  2011-08-16 19:22:55 Europe/Paris
  - allow to skip files (randy stauner)
 
