@@ -41,7 +41,7 @@ sub munge_file {
         return if $file->name =~ $skip;
     }
 
-    if ($file->does('Dist::Zilla:Role::MutableFile'))
+    if (not $file->does('Dist::Zilla::Role::MutableFile'))
     {
         $self->log_debug($file->name . ' is not a mutable type, skipping...');
         return;
